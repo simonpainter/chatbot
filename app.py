@@ -1,15 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-from openai import OpenAI
-
-import os
-import json
-
-client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-
-
-app = Flask(__name__)
+import os, time, json, openai
 
 # Load API credentials from environment variables
+client = openai.OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+app = Flask(__name__)
 
 # Load JSON data from file
 json_file_path = "data.json"
